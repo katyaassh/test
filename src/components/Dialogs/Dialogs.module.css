@@ -1,0 +1,60 @@
+.dialogs {
+    display: grid;
+    grid-template-areas:
+    "dialogsItems messages"
+    "dialogsItems newMessages";
+    grid-template-rows: auto auto;
+    grid-template-columns: 20% auto;
+    border-radius: 5px;
+    padding: 15px;
+    grid-gap: 20px;
+
+}
+
+.dialogsItems {
+    grid-area: dialogsItems;
+}
+
+.dialog {
+    margin: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.dialog a {
+    color: black;
+    text-decoration: none;
+}
+
+.dialog .active {
+    color: #D4A373;
+}
+
+.messages {
+    grid-area: messages;
+}
+
+.message {
+    margin: 10px 0;
+}
+
+.newMessages {
+    grid-area: newMessages;
+    display: flex;
+    align-items: flex-end;
+    height: 40px;
+}
+
+.input {
+    margin-right: 12px;
+}
+
+.messageButton {
+    border-radius: 5px;
+    height: 25px;
+    width: 65px;
+    border: none;
+    background-color: #CCD5AE;
+    cursor: pointer;
+}

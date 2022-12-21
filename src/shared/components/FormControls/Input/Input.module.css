@@ -1,0 +1,23 @@
+.input {
+    height: 30px;
+    width: 250px;
+    padding: 0 5px;
+    border: 1px solid #CCD5AE;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.input:focus {
+    outline: none;
+    border: 1px solid #a2b36b;
+}
+
+.error {
+    border: 2px solid red;
+}
+
+.errorText {
+    font-size: 12px;
+    padding-bottom: 5px;
+    color: red;
+}

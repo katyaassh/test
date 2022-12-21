@@ -1,0 +1,28 @@
+.contactsItems {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactsLabel{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contacts{
+    padding: 10px;
+    width: 200px;
+    background-color: rgba(204, 213, 174, 0.25);
+    border-radius: 5px;
+    border: 2px solid #CCD5AE;
+    cursor: pointer;
+}
+
+.arrow{
+    width: 18px;
+}
+
+.arrowExpanded{
+    rotate: 180deg;
+}
+

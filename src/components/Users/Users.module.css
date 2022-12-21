@@ -1,0 +1,14 @@
+.userContainer {
+    position: relative;
+    margin: 10px;
+}
+
+.usersPage {
+
+}
+
+.loader {
+    position: absolute;
+    left: calc(50% - 100px);
+    top: 100px;
+}

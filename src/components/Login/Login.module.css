@@ -1,0 +1,34 @@
+.loginFormContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.loginCheckbox {
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+}
+
+.button {
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #a2b36b;
+    background-color: #CCD5AE;
+    align-self: center;
+    cursor: pointer;
+}
+
+.error {
+    font-size: 12px;
+    padding-bottom: 5px;
+    color: red;
+}

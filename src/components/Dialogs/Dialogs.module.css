@@ -40,20 +40,22 @@
 }
 
 .newMessages {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     grid-area: newMessages;
-    display: flex;
-    align-items: flex-end;
-    height: 40px;
 }
 
 .input {
     margin-right: 12px;
+    height: 30px;
+    width: 200px;
 }
 
 .messageButton {
     border-radius: 5px;
     height: 25px;
-    width: 65px;
+    width: 80px;
     border: none;
     background-color: #CCD5AE;
     cursor: pointer;

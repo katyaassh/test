@@ -1,0 +1,60 @@
+.user img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+
+.followedButton{
+    border-radius: 5px;
+    height: 25px;
+    width: 75px;
+    border: none;
+    background-color: #CCD5AE;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.user {
+    border: 1px solid #CCD5AE;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.userLeftSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.userRightSection {
+    display: flex;
+}
+
+.userInfo{
+    display: flex;
+}
+
+.userName {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.userStatus{
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 0.05rem;
+}
+
+.userDescription{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    justify-content: center;
+}
+
+.user:hover{
+    background-color: rgba(204, 213, 174, 0.25);
+}

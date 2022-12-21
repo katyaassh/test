@@ -1,14 +1,21 @@
 import './Profile.module.css'
-import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import Loader from "../../shared/components/Loader/Loader";
 
 const Profile = (props) => {
+
+
     return <div>
-        <ProfileInfo/>
-        <MyPosts
-            posts={props.profilePage.posts}
-            dispatch={props.dispatch}
-            newPostText={props.profilePage.newPostText}/>
+        {props.profile ? <ProfileInfo
+            isOwner={props.isOwner}
+            profile={props.profile}
+            status={props.status}
+            updateStatus={props.updateStatus}
+            photo={props.photo}
+            updatePhoto={props.updatePhoto}
+        /> : <Loader /> }
+        <MyPostsContainer />
     </div>
 }
 

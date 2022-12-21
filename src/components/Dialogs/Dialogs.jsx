@@ -1,24 +1,22 @@
 import s from './Dialogs.module.css'
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
-
 import React from "react";
-import {addMessageActionCreator, updateNewMessageActionCreator} from "../../redux/dialogs-reducer";
+import {Form, Formik} from "formik";
+import {validateMessage} from "../../shared/utils/validators";
+import {Textarea} from "../../shared/components/FormControls/Textarea/Textarea";
 
 
 const Dialogs = (props) => {
 
-    let dialogsElements = props.state.dialogs.map((d) => <DialogItem name={d.name} id={d.id}/>)
-    let messagesElement = props.state.messages.map((m) => <Message id={m.id} message={m.message}/>)
-    let newMessageElement = React.createRef()
+    let dialogsElements = props.dialogsPage.dialogs.map((d) => <DialogItem name={d.name} key={d.id} id={d.id}/>)
+    let messagesElement = props.dialogsPage.messages.map((m) => <Message id={m.id} key={m.id} message={m.message}/>)
 
-    let addMessage = () => {
-        props.dispatch(addMessageActionCreator())
+    let addMessage = (values, {resetForm}) => {
+        props.addMessage(values.message)
+        resetForm()
     }
-    let onMessageChange = () => {
-        let text = newMessageElement.current.value;
-        props.dispatch(updateNewMessageActionCreator(text))
-    }
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
@@ -28,8 +26,21 @@ const Dialogs = (props) => {
                 {messagesElement}
             </div>
             <div className={s.newMessages}>
-                <textarea onChange={onMessageChange} ref={newMessageElement} className={s.input} value={props.state.newMessageText} placeholder={'Enter your message'}></textarea>
-                <button disabled={!props.state.newMessageText} onClick={addMessage} className={s.messageButton}>Send</button>
+                <Formik
+                    initialValues={{message: ''}}
+                    onSubmit={addMessage}
+                >
+                    {() => (
+                        <Form>
+                            <Textarea type="text" name="message"
+                                      placeholder="Введите текст" validate={validateMessage}
+                                      autoComplete={"off"} className={s.input}/>
+                            <button type="submit" className={s.messageButton}>
+                                Отправить
+                            </button>
+                        </Form>
+                    )}
+                </Formik>
             </div>
         </div>
     )

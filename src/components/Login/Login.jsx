@@ -1,19 +1,20 @@
 import {Field, Form, Formik} from "formik";
 import s from './Login.module.css'
 import clsx from "clsx";
-import {validateEmail, validatePassword} from "../../shared/utils/validators";
+import {required, validateEmail, validatePassword} from "../../shared/utils/validators";
 import {Input} from "../../shared/components/FormControls/Input/Input";
 
 export const Login = (props) => {
     const onSubmit = (values, {setSubmitting, setStatus}) => {
-        props.login(values.email, values.password, values.rememberMe, setSubmitting, setStatus)
+        console.log(values)
+        props.login(values.email, values.password, values.rememberMe, values.captcha, setSubmitting, setStatus)
     }
 
 
     return <div className={s.loginFormContainer}>
         <h1>Вход</h1>
         <Formik
-            initialValues={{email: '', password: '', rememberMe: false}}
+            initialValues={{email: '', password: '', rememberMe: false, captcha:''}}
             onSubmit={onSubmit}
         >
             {({isSubmitting, status, setStatus}) => (
@@ -27,6 +28,11 @@ export const Login = (props) => {
                         <Field type="checkbox" name="rememberMe"/>
                         Запомнить меня
                     </label>
+                    {props.captchaUrl && <div>
+                        <img src={props.captchaUrl} />
+                        <Input type="text" name="captcha" placeholder="Введите текст с картинки"
+                        validate={required}/>
+                    </div>}
                     <button type="submit" disabled={isSubmitting} className={clsx(s.formField, s.button)}>
                         Войти
                     </button>

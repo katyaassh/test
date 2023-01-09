@@ -125,22 +125,14 @@ export const updatePhoto = (photo) => async (dispatch) => {
     }
 }
 
-export const updateProfile = (data, onSuccess) => async (dispatch) => {
+export const updateProfile = (data, setSubmitting, onSuccess, setStatus) => async (dispatch) => {
     let response = await profileAPI.updateProfile(data)
     if (response.data.resultCode === 0) {
         onSuccess()
+    } else {
+        setStatus('Неверный формат ссылок')
+        setSubmitting(false)
     }
-    //
-    // try {
-    //     let response = await profileAPI.updateProfile(data)
-    //     if (response.data.resultCode === 0) {
-    //         onSuccess()
-    //     } else {
-    //         setStatus('Неправильный Email и/или пароль')
-    //     }
-    // } catch (error) {
-    //     setStatus('Ошибка')
-    // }
 }
 
 
